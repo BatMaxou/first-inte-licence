@@ -7,6 +7,7 @@ body {
     --black: #000;
     --black-smoke: rgba(0, 0, 0, 0.2);
     --white: #fff;
+    --white-smoke: rgba(255, 255, 255, 0.4);
     --secondary: #dbb7ae;
     --secondary-rgba: rgba(219, 183, 174, 0.2);
     --font-secondary: 'Noto+Serif';
@@ -88,6 +89,7 @@ body {
             &:hover {
                 margin-right: 12px;
                 padding-left: 12px;
+                transition: 0.7s ease-in-out;
 
                 &::before {
                     width: 0;
@@ -119,15 +121,19 @@ body {
     #landing {
         position: relative;
         color: var(--white);
+        height: 100%;
 
         .slider {
-            height: 500px;
+            height: 100%;
 
             .slider-element {
                 width: 100%;
                 height: 100%;
                 display: none;
+                opacity: 0;
                 background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
 
                 &:first-child {
                     background-image: url('assets/landing-top-slider-4.jpg');
@@ -140,6 +146,7 @@ body {
 
             .slider-element-current {
                 display: block;
+                opacity: 1;
             }
         }
 
@@ -168,6 +175,29 @@ body {
 
             .pres {
                 width: 550px;
+            }
+        }
+
+        .slider-dots-container {
+            position: absolute;
+            height: 25px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+
+            .slider-dot {
+                width: 10px;
+                height: 10px;
+                background-color: var(--white-smoke);
+                border-radius: 50%;
+                margin-inline: 3px;
+                cursor: pointer;
+            }
+
+            .slider-dot-current {
+                background-color: var(--white);
             }
         }
     }
