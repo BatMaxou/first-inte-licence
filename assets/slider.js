@@ -29,34 +29,32 @@ const handleSliderChange = (index, max) => {
         { duration: 500 }
     )
 
+    elements[index].animate(
+        [{
+            opacity: 1
+        }],
+        {
+            duration: 500,
+            delay: 80
+        }
+    )
+
     setTimeout(() => {
         const currDot = dots.find(dot => dot.classList.contains('slider-dot-current'))
-
-        currElement.classList.remove('slider-element-current')
-        currElement.style.display = 'none'
-
-        elements[index].style.display = 'block'
-        elements[index].animate(
-            [{
-                opacity: 1
-            }],
-            { duration: 500 }
-        )
-        setTimeout(() => {
-            elements[index].classList.add('slider-element-current')
-        }, 500)
-
         dots[index].classList.add('slider-dot-current')
         currDot.classList.remove('slider-dot-current')
+    }, 80)
+
+    setTimeout(() => {
+        elements[index].classList.add('slider-element-current')
+        currElement.classList.remove('slider-element-current')
     }, 500)
 
 
     return index
 }
 
-const slider = document.querySelector('.slider');
-
-if (slider) {
+const init = () => {
     const sliderChildren = Array.from(slider.children)
 
     sliderChildren.forEach(child => {
@@ -75,4 +73,10 @@ if (slider) {
             index = handleSliderChange(index, sliderChildren.length - 1)
         }, 5000)
     }
+}
+
+const slider = document.querySelector('.slider');
+
+if (slider) {
+    init()
 }
