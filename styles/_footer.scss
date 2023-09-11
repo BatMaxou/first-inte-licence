@@ -1,0 +1,28 @@
+.footer {
+    background-image: url('assets/landing-bottom-background-1.jpg');
+    background-position: center;
+
+    &__main-container {
+        color: var(--white);
+        text-align: center;
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 50px;
+            margin: 10px 0;
+        }
+    }
+
+    &__pres {
+        margin: 0 auto;
+        width: 550px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        &__pres {
+            width: 300px;
+        }
+    }
+}

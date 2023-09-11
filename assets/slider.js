@@ -1,12 +1,12 @@
-const createDot = (current = false) => {
-    const dot = document.createElement('div');
-    dot.classList.add('slider-dot');
+const createBullet = (current = false) => {
+    const bullet = document.createElement('div');
+    bullet.classList.add('bullets-container__bullet');
 
     if (current) {
-        dot.classList.add('slider-dot-current');
+        bullet.classList.add('bullets-container__bullet--current');
     }
 
-    document.querySelector('.slider-dots-container').appendChild(dot);
+    document.querySelector('.bullets-container').appendChild(bullet);
 }
 
 const handleSliderChange = (index, max) => {
@@ -17,10 +17,10 @@ const handleSliderChange = (index, max) => {
         index += 1
     }
 
-    const elements = Array.from(document.querySelectorAll('.slider-element'))
-    const dots = Array.from(document.querySelectorAll('.slider-dot'))
+    const elements = Array.from(document.querySelectorAll('.slider__element'))
+    const bullets = Array.from(document.querySelectorAll('.bullets-container__bullet'))
 
-    const currElement = elements.find(element => element.classList.contains('slider-element-current'))
+    const currElement = elements.find(element => element.classList.contains('slider__element--current'))
 
     currElement.animate(
         [{
@@ -40,14 +40,14 @@ const handleSliderChange = (index, max) => {
     )
 
     setTimeout(() => {
-        const currDot = dots.find(dot => dot.classList.contains('slider-dot-current'))
-        dots[index].classList.add('slider-dot-current')
-        currDot.classList.remove('slider-dot-current')
+        const currBullet = bullets.find(bullet => bullet.classList.contains('bullets-container__bullet--current'))
+        bullets[index].classList.add('bullets-container__bullet--current')
+        currBullet.classList.remove('bullets-container__bullet--current')
     }, 80)
 
     setTimeout(() => {
-        elements[index].classList.add('slider-element-current')
-        currElement.classList.remove('slider-element-current')
+        elements[index].classList.add('slider__element--current')
+        currElement.classList.remove('slider__element--current')
     }, 500)
 
 
@@ -58,11 +58,11 @@ const init = () => {
     const sliderChildren = Array.from(slider.children)
 
     sliderChildren.forEach(child => {
-        const isCurrent = child.classList.contains('slider-element-current')
+        const isCurrent = child.classList.contains('slider__element--current')
         if (isCurrent) {
-            createDot(true)
+            createBullet(true)
         } else {
-            createDot()
+            createBullet()
         }
     })
 

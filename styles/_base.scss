@@ -1,0 +1,131 @@
+body {
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    --black: #000;
+    --black-smoke: rgba(0, 0, 0, 0.2);
+    --white: #fff;
+    --white-smoke: rgba(255, 255, 255, 0.4);
+    --secondary: #e9cec7;
+    --secondary-rgba: rgba(233, 206, 199, 0.2);
+    --font-secondary: 'Noto Serif';
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 80px;
+    text-transform: uppercase;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.section {
+    width: 100%;
+    overflow: hidden;
+    padding: 150px 0;
+
+    &__margin-content {
+        margin-inline: 70px;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    &__subtitle {
+        font-family: var(--font-secondary);
+        color: var(--secondary);
+        font-style: italic;
+        font-weight: bold;
+    }
+}
+
+.img-container {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.test-btn {
+    width: 250px;
+    height: 60px;
+    background-color: #fff;
+    margin: 20px auto;
+    color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        font-size: 14px;
+        padding-left: 25px;
+        text-transform: uppercase;
+        position: relative;
+        color: var(--black);
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 2px;
+            background-color: var(--black);
+            transition: 0.3s ease-in-out
+        }
+
+        &:hover {
+            margin-right: 12px;
+            padding-left: 12px;
+            transition: 0.5s ease-in-out;
+
+            &::before {
+                width: 0;
+            }
+        }
+    }
+
+    &--secondary {
+        background-color: transparent;
+        color: var(--white);
+        margin: 0;
+        justify-content: inherit;
+
+        a {
+            display: block;
+            color: var(--white);
+
+            &::before {
+
+                background-color: var(--white);
+            }
+
+            &:hover {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 60px;
+    }
+}

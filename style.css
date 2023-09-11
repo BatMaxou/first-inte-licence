@@ -11,41 +11,50 @@ body {
   --secondary-rgba: rgba(233, 206, 199, 0.2);
   --font-secondary: "Noto Serif";
 }
-body h1 {
+
+h1 {
   padding: 0;
   margin: 0;
   font-size: 80px;
   text-transform: uppercase;
 }
-body p {
+
+p {
   padding: 0;
   margin: 0;
 }
-body a {
+
+a {
   display: block;
   text-decoration: none;
 }
-body .section {
+
+.section {
   width: 100%;
   overflow: hidden;
   padding: 150px 0;
 }
-body .section .section-title {
+.section__margin-content {
+  margin-inline: 70px;
+}
+.section__title {
   text-transform: uppercase;
   font-size: 30px;
   font-weight: bold;
 }
-body .section .section-subtitle {
+.section__subtitle {
   font-family: var(--font-secondary);
   color: var(--secondary);
   font-style: italic;
   font-weight: bold;
 }
-body .img-container img {
+
+.img-container img {
   width: 100%;
   height: auto;
 }
-body .test-btn {
+
+.test-btn {
   width: 250px;
   height: 60px;
   background-color: #fff;
@@ -55,7 +64,7 @@ body .test-btn {
   justify-content: center;
   align-items: center;
 }
-body .test-btn a {
+.test-btn a {
   font-size: 14px;
   padding-left: 25px;
   text-transform: uppercase;
@@ -64,7 +73,7 @@ body .test-btn a {
   font-weight: bold;
   transition: 0.3s ease-in-out;
 }
-body .test-btn a::before {
+.test-btn a::before {
   content: "";
   position: absolute;
   left: 0;
@@ -75,41 +84,47 @@ body .test-btn a::before {
   background-color: var(--black);
   transition: 0.3s ease-in-out;
 }
-body .test-btn a:hover {
+.test-btn a:hover {
   margin-right: 12px;
   padding-left: 12px;
   transition: 0.5s ease-in-out;
 }
-body .test-btn a:hover::before {
+.test-btn a:hover::before {
   width: 0;
 }
-body .test-btn-secondary {
+.test-btn--secondary {
   background-color: transparent;
   color: var(--white);
   margin: 0;
   justify-content: inherit;
 }
-body .test-btn-secondary a {
+.test-btn--secondary a {
   display: block;
   color: var(--white);
 }
-body .test-btn-secondary a::before {
+.test-btn--secondary a::before {
   background-color: var(--white);
 }
-body .test-btn-secondary a:hover {
+.test-btn--secondary a:hover {
   padding-left: 0;
 }
-body #landing {
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 60px;
+  }
+}
+.landing {
   position: relative;
   color: var(--white);
   height: 100%;
 }
-body #landing .slider {
+.landing .slider {
   position: relative;
   width: 100%;
   height: 100%;
 }
-body #landing .slider .slider-element {
+.landing .slider__element {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -118,42 +133,16 @@ body #landing .slider .slider-element {
   background-repeat: no-repeat;
   background-size: cover;
 }
-body #landing .slider .slider-element:first-child {
+.landing .slider__element:first-child {
   background-image: url("assets/landing-top-slider-4.jpg");
 }
-body #landing .slider .slider-element:nth-child(2) {
+.landing .slider__element:nth-child(2) {
   background-image: url("assets/landing-top-slider-3.jpg");
 }
-body #landing .slider .slider-element-current {
+.landing .slider__element--current {
   opacity: 1;
 }
-body #landing .catch {
-  font-style: italic;
-  font-weight: bold;
-  position: absolute;
-  top: 50px;
-  left: 50px;
-}
-body #landing .main-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 20px;
-}
-body #landing .main-container .welcome {
-  font-family: var(--font-secondary);
-  font-style: italic;
-  color: var(--secondary);
-}
-body #landing .main-container h1 {
-  margin: 10px 0;
-}
-body #landing .main-container .pres {
-  width: 550px;
-}
-body #landing .slider-dots-container {
+.landing .bullets-container {
   position: absolute;
   height: 25px;
   bottom: 5%;
@@ -162,35 +151,72 @@ body #landing .slider-dots-container {
   display: flex;
   align-items: center;
 }
-body #landing .slider-dots-container .slider-dot {
+.landing .bullets-container__bullet {
   width: 10px;
   height: 10px;
   background-color: var(--white-smoke);
   border-radius: 50%;
   margin-inline: 3px;
 }
-body #landing .slider-dots-container .slider-dot-current {
+.landing .bullets-container__bullet--current {
   background-color: var(--white);
 }
-body #nav .content {
-  margin-inline: 70px;
+.landing__catch {
+  font-style: italic;
+  font-weight: bold;
+  position: absolute;
+  top: 50px;
+  left: 50px;
 }
-body #nav .content .nav-elements {
+.landing__main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 20px;
+}
+.landing__main-container h1 {
+  margin: 10px 0;
+}
+.landing__welcome {
+  font-family: var(--font-secondary);
+  font-style: italic;
+  color: var(--secondary);
+}
+.landing__pres {
+  width: 550px;
+}
+
+@media (max-width: 800px) {
+  .landing__main-container {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .landing__pres {
+    width: 300px;
+  }
+}
+.nav__elements {
   display: flex;
   flex-wrap: wrap;
   gap: 10%;
   counter-set: nb 0;
 }
-body #nav .content .nav-elements .nav-element {
+.nav__element {
   width: 45%;
   margin-bottom: 100px;
   color: var(--black);
   counter-increment: nb;
 }
-body #nav .content .nav-elements .nav-element .img-container {
+.nav__element .img-container {
   width: 100%;
 }
-body #nav .content .nav-elements .nav-element .nav-home {
+.nav__element:hover {
+  cursor: pointer;
+}
+.nav__element-title {
   text-transform: uppercase;
   margin: 50px 0 0;
   padding-left: 0;
@@ -198,7 +224,7 @@ body #nav .content .nav-elements .nav-element .nav-home {
   position: relative;
   transition: 0.5s ease-in-out;
 }
-body #nav .content .nav-elements .nav-element .nav-home::before {
+.nav__element-title::before {
   content: "";
   position: absolute;
   left: 0;
@@ -209,7 +235,7 @@ body #nav .content .nav-elements .nav-element .nav-home::before {
   background-color: var(--black);
   transition: 0.5s ease-in-out;
 }
-body #nav .content .nav-elements .nav-element .nav-home::after {
+.nav__element-title::after {
   content: "0" counter(nb);
   position: absolute;
   top: 50%;
@@ -222,59 +248,63 @@ body #nav .content .nav-elements .nav-element .nav-home::after {
   color: var(--secondary-rgba);
   transition: 0.7s ease-in-out;
 }
-body #nav .content .nav-elements .nav-element:hover {
-  cursor: pointer;
-}
-body #nav .content .nav-elements .nav-element:hover .nav-home {
+.nav__element:hover .nav__element-title {
   padding-left: 25px;
 }
-body #nav .content .nav-elements .nav-element:hover .nav-home::before {
+.nav__element:hover .nav__element-title::before {
   width: 15px;
 }
-body #nav .content .nav-elements .nav-element:hover .nav-home::after {
+.nav__element:hover .nav__element-title::after {
   left: 90px;
 }
-body #loreem-flex {
+
+@media (max-width: 800px) {
+  .nav__element {
+    width: 100%;
+  }
+}
+.loreem-flex {
   overflow: inherit;
   background-image: url("assets/landing-slider1-background.jpg");
   background-position: center;
+  overflow: inherit;
 }
-body #loreem-flex .content {
+.loreem-flex__content {
   display: flex;
   justify-content: center;
   gap: 120px;
   padding-inline: 100px;
 }
-body #loreem-flex .content .main-container {
+.loreem-flex__main-container {
   width: 50%;
   color: var(--white);
 }
-body #loreem-flex .content .main-container h3 {
+.loreem-flex__main-container h3 {
   margin-top: 10px;
 }
-body #loreem-flex .content .base-img {
+.loreem-flex__base-img {
   width: 40%;
   position: relative;
 }
-body #loreem-flex .content .base-img .first {
+.loreem-flex__first-img {
   position: absolute;
   height: 200px;
   top: -100px;
   left: 0;
 }
-body #loreem-flex .content .base-img .first img {
+.loreem-flex__first-img img {
   height: 100%;
   width: auto;
   max-width: 120%;
 }
-body #loreem-flex .content .base-img .second {
+.loreem-flex__second-img {
   position: absolute;
   width: 200px;
   z-index: 2;
   left: -100px;
   top: 0;
 }
-body #loreem-flex .content .base-img .third {
+.loreem-flex__third-img {
   position: absolute;
   width: 100%;
   max-width: 350px;
@@ -282,101 +312,94 @@ body #loreem-flex .content .base-img .third {
   left: 40px;
   top: 150px;
 }
-body #projects {
-  text-align: center;
-}
-body #projects h3 {
-  margin: 10px 0 70px;
-}
-body #projects .content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-inline: 70px;
-}
-body #projects .content .project-element {
-  width: 30%;
-  margin: 0 10px 30px;
-  text-align: left;
-  color: var(--black);
-}
-body #projects .content .project-element .project-title {
-  margin: 10px 0;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-body #projects .content .project-element .img-container {
-  transition: 0.5s ease-in-out;
-}
-body #projects .content .project-element:hover {
-  cursor: pointer;
-}
-body #projects .content .project-element:hover .img-container {
-  box-shadow: 0 0 20px var(--black-smoke);
-}
-body #footer {
-  background-image: url("assets/landing-bottom-background-1.jpg");
-  background-position: center;
-}
-body #footer .main-container {
-  color: var(--white);
-  text-align: center;
-}
-body #footer .main-container h2 {
-  text-transform: uppercase;
-  font-size: 50px;
-  margin: 10px 0;
-}
-body #footer .main-container .pres {
-  margin: 0 auto;
-  width: 550px;
-}
 
 @media (max-width: 1200px) {
-  body #loreem-flex .content {
+  .loreem-flex__content {
     flex-direction: column;
   }
-  body #loreem-flex .content .main-container {
+  .loreem-flex__main-container {
     width: 100%;
   }
-  body #loreem-flex .content .base-img {
+  .loreem-flex__base-img {
     width: 75%;
     margin-left: 25%;
     height: 250px;
   }
-  body #projects .content .project-element {
-    width: 40%;
-  }
 }
 @media (max-width: 800px) {
-  body h1 {
-    font-size: 60px;
-  }
-  body #nav .content .nav-elements .nav-element {
-    width: 100%;
-  }
-  body #landing .main-container {
-    font-size: 16px;
-  }
-  body #projects .content .project-element {
-    width: 100%;
-  }
-  body #loreem-flex .content .base-img {
+  .loreem-flex__base-img {
     width: 90%;
     margin-left: 25px;
     height: 250px;
   }
 }
-@media (max-width: 600px) {
-  body #landing .main-container .pres {
-    width: 300px;
-  }
-  body #footer .main-container .pres {
-    width: 300px;
-  }
-}
 @media (max-width: 550px) {
-  body #loreem-flex .content .base-img {
+  .loreem-flex__base-img {
     display: none;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+.projects {
+  text-align: center;
+}
+.projects h3 {
+  margin: 10px 0 70px;
+}
+.projects__elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.projects__element {
+  width: 30%;
+  margin: 0 10px 30px;
+  text-align: left;
+  color: var(--black);
+}
+.projects__element .img-container {
+  transition: 0.5s ease-in-out;
+}
+.projects__element:hover {
+  cursor: pointer;
+}
+.projects__element:hover .img-container {
+  box-shadow: 0 0 20px var(--black-smoke);
+}
+.projects__element-name {
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .projects__element {
+    width: 40%;
+  }
+}
+@media (max-width: 800px) {
+  .projects__element {
+    width: 100%;
+  }
+}
+.footer {
+  background-image: url("assets/landing-bottom-background-1.jpg");
+  background-position: center;
+}
+.footer__main-container {
+  color: var(--white);
+  text-align: center;
+}
+.footer__main-container h2 {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin: 10px 0;
+}
+.footer__pres {
+  margin: 0 auto;
+  width: 550px;
+}
+
+@media (max-width: 600px) {
+  .footer__pres {
+    width: 300px;
+  }
+}/*# sourceMappingURL=style.css.map */

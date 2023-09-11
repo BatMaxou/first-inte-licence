@@ -1,0 +1,102 @@
+.landing {
+    position: relative;
+    color: var(--white);
+    height: 100%;
+
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &__element {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &:first-child {
+                background-image: url('assets/landing-top-slider-4.jpg');
+            }
+
+            &:nth-child(2) {
+                background-image: url('assets/landing-top-slider-3.jpg');
+            }
+
+            &--current {
+                opacity: 1;
+            }
+        }
+    }
+
+    .bullets-container {
+        position: absolute;
+        height: 25px;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+
+        &__bullet {
+            width: 10px;
+            height: 10px;
+            background-color: var(--white-smoke);
+            border-radius: 50%;
+            margin-inline: 3px;
+
+            &--current {
+                background-color: var(--white);
+            }
+        }
+    }
+
+    &__catch {
+        font-style: italic;
+        font-weight: bold;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+    }
+
+    &__main-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 20px;
+
+        h1 {
+            margin: 10px 0;
+        }
+    }
+
+    &__welcome {
+        font-family: var(--font-secondary);
+        font-style: italic;
+        color: var(--secondary);
+    }
+
+    &__pres {
+        width: 550px;
+    }
+}
+
+@media (max-width: 800px) {
+    .landing {
+        &__main-container {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .landing {
+        &__pres {
+            width: 300px;
+        }
+    }
+}
