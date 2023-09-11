@@ -1,0 +1,382 @@
+body {
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  font-family: "Montserrat", sans-serif;
+  --black: #000;
+  --black-smoke: rgba(0, 0, 0, 0.2);
+  --white: #fff;
+  --white-smoke: rgba(255, 255, 255, 0.4);
+  --secondary: #e9cec7;
+  --secondary-rgba: rgba(233, 206, 199, 0.2);
+  --font-secondary: "Noto Serif";
+}
+body h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 80px;
+  text-transform: uppercase;
+}
+body p {
+  padding: 0;
+  margin: 0;
+}
+body a {
+  display: block;
+  text-decoration: none;
+}
+body .section {
+  width: 100%;
+  overflow: hidden;
+  padding: 150px 0;
+}
+body .section .section-title {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
+}
+body .section .section-subtitle {
+  font-family: var(--font-secondary);
+  color: var(--secondary);
+  font-style: italic;
+  font-weight: bold;
+}
+body .img-container img {
+  width: 100%;
+  height: auto;
+}
+body .test-btn {
+  width: 250px;
+  height: 60px;
+  background-color: #fff;
+  margin: 20px auto;
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .test-btn a {
+  font-size: 14px;
+  padding-left: 25px;
+  text-transform: uppercase;
+  position: relative;
+  color: var(--black);
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+body .test-btn a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 2px;
+  background-color: var(--black);
+  transition: 0.3s ease-in-out;
+}
+body .test-btn a:hover {
+  margin-right: 12px;
+  padding-left: 12px;
+  transition: 0.5s ease-in-out;
+}
+body .test-btn a:hover::before {
+  width: 0;
+}
+body .test-btn-secondary {
+  background-color: transparent;
+  color: var(--white);
+  margin: 0;
+  justify-content: inherit;
+}
+body .test-btn-secondary a {
+  display: block;
+  color: var(--white);
+}
+body .test-btn-secondary a::before {
+  background-color: var(--white);
+}
+body .test-btn-secondary a:hover {
+  padding-left: 0;
+}
+body #landing {
+  position: relative;
+  color: var(--white);
+  height: 100%;
+}
+body #landing .slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+body #landing .slider .slider-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body #landing .slider .slider-element:first-child {
+  background-image: url("assets/landing-top-slider-4.jpg");
+}
+body #landing .slider .slider-element:nth-child(2) {
+  background-image: url("assets/landing-top-slider-3.jpg");
+}
+body #landing .slider .slider-element-current {
+  opacity: 1;
+}
+body #landing .catch {
+  font-style: italic;
+  font-weight: bold;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+body #landing .main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 20px;
+}
+body #landing .main-container .welcome {
+  font-family: var(--font-secondary);
+  font-style: italic;
+  color: var(--secondary);
+}
+body #landing .main-container h1 {
+  margin: 10px 0;
+}
+body #landing .main-container .pres {
+  width: 550px;
+}
+body #landing .slider-dots-container {
+  position: absolute;
+  height: 25px;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+body #landing .slider-dots-container .slider-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--white-smoke);
+  border-radius: 50%;
+  margin-inline: 3px;
+}
+body #landing .slider-dots-container .slider-dot-current {
+  background-color: var(--white);
+}
+body #nav .content {
+  margin-inline: 70px;
+}
+body #nav .content .nav-elements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+  counter-set: nb 0;
+}
+body #nav .content .nav-elements .nav-element {
+  width: 45%;
+  margin-bottom: 100px;
+  color: var(--black);
+  counter-increment: nb;
+}
+body #nav .content .nav-elements .nav-element .img-container {
+  width: 100%;
+}
+body #nav .content .nav-elements .nav-element .nav-home {
+  text-transform: uppercase;
+  margin: 50px 0 0;
+  padding-left: 0;
+  font-weight: bold;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+body #nav .content .nav-elements .nav-element .nav-home::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--black);
+  transition: 0.5s ease-in-out;
+}
+body #nav .content .nav-elements .nav-element .nav-home::after {
+  content: "0" counter(nb);
+  position: absolute;
+  top: 50%;
+  left: 65px;
+  z-index: -1;
+  transform: translate(-25%, -50%);
+  font-size: 180px;
+  font-style: italic;
+  font-family: var(--font-secondary);
+  color: var(--secondary-rgba);
+  transition: 0.7s ease-in-out;
+}
+body #nav .content .nav-elements .nav-element:hover {
+  cursor: pointer;
+}
+body #nav .content .nav-elements .nav-element:hover .nav-home {
+  padding-left: 25px;
+}
+body #nav .content .nav-elements .nav-element:hover .nav-home::before {
+  width: 15px;
+}
+body #nav .content .nav-elements .nav-element:hover .nav-home::after {
+  left: 90px;
+}
+body #loreem-flex {
+  overflow: inherit;
+  background-image: url("assets/landing-slider1-background.jpg");
+  background-position: center;
+}
+body #loreem-flex .content {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  padding-inline: 100px;
+}
+body #loreem-flex .content .main-container {
+  width: 50%;
+  color: var(--white);
+}
+body #loreem-flex .content .main-container h3 {
+  margin-top: 10px;
+}
+body #loreem-flex .content .base-img {
+  width: 40%;
+  position: relative;
+}
+body #loreem-flex .content .base-img .first {
+  position: absolute;
+  height: 200px;
+  top: -100px;
+  left: 0;
+}
+body #loreem-flex .content .base-img .first img {
+  height: 100%;
+  width: auto;
+  max-width: 120%;
+}
+body #loreem-flex .content .base-img .second {
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+  left: -100px;
+  top: 0;
+}
+body #loreem-flex .content .base-img .third {
+  position: absolute;
+  width: 100%;
+  max-width: 350px;
+  z-index: 1;
+  left: 40px;
+  top: 150px;
+}
+body #projects {
+  text-align: center;
+}
+body #projects h3 {
+  margin: 10px 0 70px;
+}
+body #projects .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-inline: 70px;
+}
+body #projects .content .project-element {
+  width: 30%;
+  margin: 0 10px 30px;
+  text-align: left;
+  color: var(--black);
+}
+body #projects .content .project-element .project-title {
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+body #projects .content .project-element .img-container {
+  transition: 0.5s ease-in-out;
+}
+body #projects .content .project-element:hover {
+  cursor: pointer;
+}
+body #projects .content .project-element:hover .img-container {
+  box-shadow: 0 0 20px var(--black-smoke);
+}
+body #footer {
+  background-image: url("assets/landing-bottom-background-1.jpg");
+  background-position: center;
+}
+body #footer .main-container {
+  color: var(--white);
+  text-align: center;
+}
+body #footer .main-container h2 {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin: 10px 0;
+}
+body #footer .main-container .pres {
+  margin: 0 auto;
+  width: 550px;
+}
+
+@media (max-width: 1200px) {
+  body #loreem-flex .content {
+    flex-direction: column;
+  }
+  body #loreem-flex .content .main-container {
+    width: 100%;
+  }
+  body #loreem-flex .content .base-img {
+    width: 75%;
+    margin-left: 25%;
+    height: 250px;
+  }
+  body #projects .content .project-element {
+    width: 40%;
+  }
+}
+@media (max-width: 800px) {
+  body h1 {
+    font-size: 60px;
+  }
+  body #nav .content .nav-elements .nav-element {
+    width: 100%;
+  }
+  body #landing .main-container {
+    font-size: 16px;
+  }
+  body #projects .content .project-element {
+    width: 100%;
+  }
+  body #loreem-flex .content .base-img {
+    width: 90%;
+    margin-left: 25px;
+    height: 250px;
+  }
+}
+@media (max-width: 600px) {
+  body #landing .main-container .pres {
+    width: 300px;
+  }
+  body #footer .main-container .pres {
+    width: 300px;
+  }
+}
+@media (max-width: 550px) {
+  body #loreem-flex .content .base-img {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */
