@@ -1,7 +1,7 @@
 .landing {
     position: relative;
     color: var(--white);
-    height: 100%;
+    height: 100dvh;
 
     .slider {
         position: relative;
@@ -80,7 +80,7 @@
         color: var(--secondary);
     }
 
-    &__pres {
+    &__main-text {
         width: 550px;
     }
 }
@@ -95,7 +95,7 @@
 
 @media (max-width: 600px) {
     .landing {
-        &__pres {
+        &__main-text {
             width: 300px;
         }
     }

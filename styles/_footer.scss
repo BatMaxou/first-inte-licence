@@ -13,7 +13,7 @@
         }
     }
 
-    &__pres {
+    &__main-text {
         margin: 0 auto;
         width: 550px;
     }
@@ -21,7 +21,7 @@
 
 @media (max-width: 600px) {
     .footer {
-        &__pres {
+        &__main-text {
             width: 300px;
         }
     }
